@@ -8,9 +8,13 @@ import type {
   User,
 } from "@/lib/types";
 
+const HOSTED_API_BASE_URL = "https://appifylab-task-he13.onrender.com/api/v1";
+const configuredApiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ??
-  "https://appifylab-task-he13.onrender.com/api/v1";
+  configuredApiBaseUrl?.includes("appifylab-social-api.onrender.com")
+    ? HOSTED_API_BASE_URL
+    : configuredApiBaseUrl ?? HOSTED_API_BASE_URL;
 
 type RequestOptions = Omit<RequestInit, "body"> & {
   token?: string | null;
