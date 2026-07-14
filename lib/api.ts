@@ -9,7 +9,8 @@ import type {
 } from "@/lib/types";
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000/api/v1";
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
+  "https://appifylab-task-he13.onrender.com/api/v1";
 
 type RequestOptions = Omit<RequestInit, "body"> & {
   token?: string | null;
